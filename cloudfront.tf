@@ -171,6 +171,59 @@ resource "aws_cloudfront_distribution" "blog_distribution" {
 		compress = true
 	}
 
+	# /apple-touch-icon*.png
+	# - Cache for longer than default
+	ordered_cache_behavior {
+		path_pattern = "/apple-touch-icon*.png"
+		allowed_methods = ["GET", "HEAD"]
+		cached_methods = ["GET", "HEAD"]
+		target_origin_id = "${var.cf_origin_id}"
+
+		forwarded_values = {
+			query_string = true
+			cookies {
+				forward = "whitelist"
+				whitelisted_names = ["comment_author_*",
+					"_ga",
+					"gadwp_*",
+					"wordpress_*",
+					"wp-settings-*"]
+			}
+			headers = ["Host", "Origin", "Referrer"]
+		}
+
+		viewer_protocol_policy = "redirect-to-https"
+
+		min_ttl = 0
+		default_ttl = 604800
+		max_ttl = 604800
+		compress = true
+	}
+
+	# /favicon.ico
+	# - Cache for longer than default
+	ordered_cache_behavior {
+		path_pattern = "/favicon.ico"
+		allowed_methods = ["GET", "HEAD"]
+		cached_methods = ["GET", "HEAD"]
+		target_origin_id = "${var.cf_origin_id}"
+
+		forwarded_values = {
+			query_string = true
+			cookies {
+				forward = "none"
+			}
+			headers = ["Host", "Origin", "Referrer"]
+		}
+
+		viewer_protocol_policy = "redirect-to-https"
+
+		min_ttl = 0
+		default_ttl = 604800
+		max_ttl = 604800
+		compress = true
+	}
+
 	price_class = "PriceClass_200"
 
 	restrictions {
