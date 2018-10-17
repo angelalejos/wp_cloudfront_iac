@@ -130,7 +130,7 @@ resource "aws_cloudfront_distribution" "blog_distribution" {
 					"wordpress_*",
 					"wp-settings-*"]
 			}
-			headers = ["Host", "Origin"]
+			headers = ["Host", "Origin", "Referrer"]
 		}
 
 		viewer_protocol_policy = "redirect-to-https"
@@ -160,7 +160,7 @@ resource "aws_cloudfront_distribution" "blog_distribution" {
 					"wordpress_*",
 					"wp-settings-*"]
 			}
-			headers = ["Host", "Origin"]
+			headers = ["Host", "Origin", "Referrer"]
 		}
 
 		viewer_protocol_policy = "redirect-to-https"
