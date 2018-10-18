@@ -42,7 +42,12 @@ resource "aws_cloudfront_distribution" "blog_distribution" {
 					"wordpress_*",
 					"wp-settings-*"]
 			}
-			headers = ["Host", "Origin", "Referer"]
+			headers = [
+				"Accept-Encoding",
+				"Host",
+				"Origin",
+				"Referer"
+			]
 		}
 
 		viewer_protocol_policy = "redirect-to-https"
@@ -130,7 +135,12 @@ resource "aws_cloudfront_distribution" "blog_distribution" {
 					"wordpress_*",
 					"wp-settings-*"]
 			}
-			headers = ["Host", "Origin", "Referer"]
+			headers = [
+				"Accept-Encoding",
+				"Host",
+				"Origin",
+				"Referer"
+			]
 		}
 
 		viewer_protocol_policy = "redirect-to-https"
@@ -160,7 +170,12 @@ resource "aws_cloudfront_distribution" "blog_distribution" {
 					"wordpress_*",
 					"wp-settings-*"]
 			}
-			headers = ["Host", "Origin", "Referer"]
+			headers = [
+				"Accept-Encoding",
+				"Host",
+				"Origin",
+				"Referer"
+			]
 		}
 
 		viewer_protocol_policy = "redirect-to-https"
@@ -189,7 +204,12 @@ resource "aws_cloudfront_distribution" "blog_distribution" {
 					"wordpress_*",
 					"wp-settings-*"]
 			}
-			headers = ["Host", "Origin", "Referer"]
+			headers = [
+				"Accept-Encoding",
+				"Host",
+				"Origin",
+				"Referer"
+			]
 		}
 
 		viewer_protocol_policy = "redirect-to-https"
@@ -213,7 +233,12 @@ resource "aws_cloudfront_distribution" "blog_distribution" {
 			cookies {
 				forward = "none"
 			}
-			headers = ["Host", "Origin", "Referer"]
+			headers = [
+				"Accept-Encoding",
+				"Host",
+				"Origin",
+				"Referer"
+			]
 		}
 
 		viewer_protocol_policy = "redirect-to-https"
