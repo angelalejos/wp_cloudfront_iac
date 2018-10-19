@@ -42,12 +42,7 @@ resource "aws_cloudfront_distribution" "blog_distribution" {
 					"wordpress_*",
 					"wp-settings-*"]
 			}
-			headers = [
-				"Accept-Encoding",
-				"Host",
-				"Origin",
-				"Referer"
-			]
+			headers = ["Host"]
 		}
 
 		viewer_protocol_policy = "redirect-to-https"
@@ -135,12 +130,7 @@ resource "aws_cloudfront_distribution" "blog_distribution" {
 					"wordpress_*",
 					"wp-settings-*"]
 			}
-			headers = [
-				"Accept-Encoding",
-				"Host",
-				"Origin",
-				"Referer"
-			]
+			headers = ["Host"]
 		}
 
 		viewer_protocol_policy = "redirect-to-https"
@@ -170,12 +160,7 @@ resource "aws_cloudfront_distribution" "blog_distribution" {
 					"wordpress_*",
 					"wp-settings-*"]
 			}
-			headers = [
-				"Accept-Encoding",
-				"Host",
-				"Origin",
-				"Referer"
-			]
+			headers = ["Host"]
 		}
 
 		viewer_protocol_policy = "redirect-to-https"
@@ -204,12 +189,7 @@ resource "aws_cloudfront_distribution" "blog_distribution" {
 					"wordpress_*",
 					"wp-settings-*"]
 			}
-			headers = [
-				"Accept-Encoding",
-				"Host",
-				"Origin",
-				"Referer"
-			]
+			headers = ["Host"]
 		}
 
 		viewer_protocol_policy = "redirect-to-https"
@@ -233,12 +213,7 @@ resource "aws_cloudfront_distribution" "blog_distribution" {
 			cookies {
 				forward = "none"
 			}
-			headers = [
-				"Accept-Encoding",
-				"Host",
-				"Origin",
-				"Referer"
-			]
+			headers = ["Host"]
 		}
 
 		viewer_protocol_policy = "redirect-to-https"
