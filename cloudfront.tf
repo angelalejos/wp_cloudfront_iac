@@ -33,7 +33,15 @@ resource "aws_cloudfront_distribution" "blog_distribution" {
 		target_origin_id = "${var.cf_origin_id}"
 
 		forwarded_values {
+			# When it comes to the default cache behavior (which
+			# catches posts, pages, and other non /wp-* content),
+			# forward query strings but don't cache based on them.
+			# Posts can take query strings like "?replytocom=XX"
+			# which don't make sense to cache on. "?ver=X.Y" is
+			# not expected to be passed to posts/pages, but it
+			# serves as a sensible placeholder in the whitelist.
 			query_string = true
+			query_string_cache_keys = ["ver"]
 			cookies {
 				forward = "whitelist"
 				whitelisted_names = ["comment_author_*",
