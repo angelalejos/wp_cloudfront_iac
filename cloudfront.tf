@@ -36,8 +36,10 @@ resource "aws_cloudfront_distribution" "blog_distribution" {
 			# Be selective about which query string variables to
 			# cache on. This list should only be changed after
 			# very careful consideration.
+			# - p: for URIs of the format /?p=1234
+			# - s: for searches (/?s=search words)
 			query_string = true
-			query_string_cache_keys = ["p"]
+			query_string_cache_keys = ["p", "s"]
 			cookies {
 				forward = "whitelist"
 				whitelisted_names = ["comment_author_*",
