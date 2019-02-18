@@ -62,7 +62,7 @@ resource "aws_cloudfront_distribution" "blog_distribution" {
 	# wp-admin/*
 	# - Don't cache
 	ordered_cache_behavior {
-		path_pattern = "wp-admin/*"
+		path_pattern = "/wordpress/wp-admin/*"
 		allowed_methods = ["GET", "HEAD", "OPTIONS", "PUT", "POST",
 			"PATCH", "DELETE"]
 		cached_methods = ["GET", "HEAD", "OPTIONS"]
@@ -91,7 +91,7 @@ resource "aws_cloudfront_distribution" "blog_distribution" {
 	# wp-login.php
 	# - Don't cache
 	ordered_cache_behavior {
-		path_pattern = "wp-login.php"
+		path_pattern = "/wp-login.php"
 		allowed_methods = ["GET", "HEAD", "OPTIONS", "PUT", "POST",
 			"PATCH", "DELETE"]
 		cached_methods = ["GET", "HEAD", "OPTIONS"]
@@ -120,7 +120,7 @@ resource "aws_cloudfront_distribution" "blog_distribution" {
 	# wp-content/*
 	# - Cache for longer than default
 	ordered_cache_behavior {
-		path_pattern = "wp-content/*"
+		path_pattern = "/wordpress/wp-content/*"
 		allowed_methods = ["GET", "HEAD", "OPTIONS", "PUT", "POST",
 			"PATCH", "DELETE"]
 		cached_methods = ["GET", "HEAD", "OPTIONS"]
@@ -150,7 +150,7 @@ resource "aws_cloudfront_distribution" "blog_distribution" {
 	# wp-includes/*
 	# - Cache for longer than default
 	ordered_cache_behavior {
-		path_pattern = "wp-includes/*"
+		path_pattern = "/wordpress/wp-includes/*"
 		allowed_methods = ["GET", "HEAD", "OPTIONS", "PUT", "POST",
 			"PATCH", "DELETE"]
 		cached_methods = ["GET", "HEAD", "OPTIONS"]
