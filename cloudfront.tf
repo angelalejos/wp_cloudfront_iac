@@ -88,35 +88,6 @@ resource "aws_cloudfront_distribution" "blog_distribution" {
 		compress = true
 	}
 
-	# wp-login.php
-	# - Don't cache
-	ordered_cache_behavior {
-		path_pattern = "/wp-login.php"
-		allowed_methods = ["GET", "HEAD", "OPTIONS", "PUT", "POST",
-			"PATCH", "DELETE"]
-		cached_methods = ["GET", "HEAD", "OPTIONS"]
-		target_origin_id = "${var.cf_origin_id}"
-
-		forwarded_values = {
-			query_string = true
-			cookies {
-				forward = "whitelist"
-				whitelisted_names = ["comment_author_*",
-					"_ga",
-					"gadwp_*",
-					"wordpress_*",
-					"wp-settings-*"]
-			}
-			# "All headers" disables caching
-			headers = ["*"]
-		}
-
-		viewer_protocol_policy = "redirect-to-https"
-
-		min_ttl = 0
-		compress = true
-	}
-
 	# wp-content/*
 	# - Cache for longer than default
 	ordered_cache_behavior {
