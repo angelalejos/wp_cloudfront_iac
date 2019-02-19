@@ -14,7 +14,7 @@ resource "aws_s3_bucket" "cf_logs" {
 		prefix = "${var.cf_logging_bucket_prefix}"
 
 		expiration {
-			days = 30
+			days = 400
 		}
 	}
 
