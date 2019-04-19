@@ -25,5 +25,8 @@ variable "tags" { type="map" }
 variable "cf_origin_id" {}
 variable "cf_logging_bucket_name" {}
 variable "cf_logging_bucket_prefix" {}
+variable "cf_priceclass" {
+	default = "PriceClass_200"
+}
 
 variable "acm_cert_arn" {}

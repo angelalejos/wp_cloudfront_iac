@@ -190,7 +190,7 @@ resource "aws_cloudfront_distribution" "blog_distribution" {
 		compress = true
 	}
 
-	price_class = "PriceClass_200"
+	price_class = "${var.cf_priceclass}"
 
 	restrictions {
 		geo_restriction {
