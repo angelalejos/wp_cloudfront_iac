@@ -2,6 +2,15 @@
 # CloudFront distribution
 #
 
+locals {
+	common_cookie_whitelist = [
+		"comment_author_*",
+		"_ga",
+		"gadwp_*",
+		"wordpress_*",
+		"wp-settings-*"
+	]
+}
 
 resource "aws_cloudfront_distribution" "blog_distribution" {
 	aliases = "${var.blog_domain_names}"
@@ -42,11 +51,7 @@ resource "aws_cloudfront_distribution" "blog_distribution" {
 			query_string_cache_keys = ["p", "s"]
 			cookies {
 				forward = "whitelist"
-				whitelisted_names = ["comment_author_*",
-					"_ga",
-					"gadwp_*",
-					"wordpress_*",
-					"wp-settings-*"]
+				whitelisted_names = "${local.common_cookie_whitelist}"
 			}
 			headers = ["Host"]
 		}
@@ -72,11 +77,7 @@ resource "aws_cloudfront_distribution" "blog_distribution" {
 			query_string = true
 			cookies {
 				forward = "whitelist"
-				whitelisted_names = ["comment_author_*",
-					"_ga",
-					"gadwp_*",
-					"wordpress_*",
-					"wp-settings-*"]
+				whitelisted_names = "${local.common_cookie_whitelist}"
 			}
 			# "All headers" disables caching
 			headers = ["*"]
@@ -101,11 +102,7 @@ resource "aws_cloudfront_distribution" "blog_distribution" {
 			query_string = true
 			cookies {
 				forward = "whitelist"
-				whitelisted_names = ["comment_author_*",
-					"_ga",
-					"gadwp_*",
-					"wordpress_*",
-					"wp-settings-*"]
+				whitelisted_names = "${local.common_cookie_whitelist}"
 			}
 			headers = ["Host"]
 		}
@@ -131,11 +128,7 @@ resource "aws_cloudfront_distribution" "blog_distribution" {
 			query_string = true
 			cookies {
 				forward = "whitelist"
-				whitelisted_names = ["comment_author_*",
-					"_ga",
-					"gadwp_*",
-					"wordpress_*",
-					"wp-settings-*"]
+				whitelisted_names = "${local.common_cookie_whitelist}"
 			}
 			headers = ["Host"]
 		}
@@ -160,11 +153,7 @@ resource "aws_cloudfront_distribution" "blog_distribution" {
 			query_string = true
 			cookies {
 				forward = "whitelist"
-				whitelisted_names = ["comment_author_*",
-					"_ga",
-					"gadwp_*",
-					"wordpress_*",
-					"wp-settings-*"]
+				whitelisted_names = "${local.common_cookie_whitelist}"
 			}
 			headers = ["Host"]
 		}
