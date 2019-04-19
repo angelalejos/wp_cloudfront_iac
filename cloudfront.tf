@@ -59,8 +59,8 @@ resource "aws_cloudfront_distribution" "blog_distribution" {
 		viewer_protocol_policy = "redirect-to-https"
 
 		min_ttl = 0
-		default_ttl = 3600
-		max_ttl = 86400
+		default_ttl = "${var.cf_default_ttl}"
+		max_ttl = "${var.cf_max_ttl}"
 		compress = true
 	}
 
