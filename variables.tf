@@ -13,7 +13,6 @@ variable "aws_region" {}
 #
 
 variable "blog_domain_names" { type="list" }
-variable "blog_primary_domain_name" {}
 variable "origin_domain_name" {}
 
 variable "wp_root" { default = "" }
