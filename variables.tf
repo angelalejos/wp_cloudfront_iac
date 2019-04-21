@@ -3,7 +3,7 @@
 #
 
 variable "aws_profile" {
-	default = "blogadmin"
+	default = "default"
 }
 
 variable "aws_region" {}
