@@ -12,6 +12,10 @@ locals {
 	]
 }
 
+output "cf_domain_name" {
+	value = "${aws_cloudfront_distribution.blog_distribution.domain_name}"
+}
+
 resource "aws_cloudfront_distribution" "blog_distribution" {
 	aliases = "${var.blog_domain_names}"
 	origin {
