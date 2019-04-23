@@ -169,6 +169,23 @@ These settings have sane defaults and are not required in `terraform.tfvars`:
 
 	Example: `cf_origin_id = "exampleBlogOrigin"`
 
+- `cf_priceclass`
+
+	The [CloudFront price class](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PriceClass.html)
+	that will be used for the CloudFront distribution. The price class
+	defines which geographic regions your distribution will use and is a
+	lever used to control CloudFront costs.
+
+	The accepted values for this parameter are:
+
+	- `PriceClass_All`
+	- `PriceClass_200`
+	- `PriceClass_100`
+
+	Default: `PriceClass_200`
+
+	Example: `cf_priceclass = PriceClass_All`
+
 - `wp_root`
 
 	The root directory underneath the webroot where WordPress is installed.
