@@ -181,7 +181,7 @@ These settings have sane defaults and are not required in `terraform.tfvars`:
 
 - `tags`
 
-	An mapping array of tags that will be applied to resources that
+	A mapping array of tags that will be applied to resources that
 	Terraform creates.
 
 	Default: *empty* (no tags)
