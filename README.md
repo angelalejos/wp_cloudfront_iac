@@ -88,10 +88,12 @@ These variables must be defined in `terraform.tfvars`:
 	Default: *none*
 
 	Example:
-	```blog_domain_names = [
+	```
+	blog_domain_names = [
 		"example.ca",
 		"www.example.ca"
-	]```
+	]
+	```
 
 	If your blog is only known via a single domain name:
 	`blog_domain_names = [ "www.example.ca" ]`
@@ -185,10 +187,12 @@ These settings have sane defaults and are not required in `terraform.tfvars`:
 	Default: *empty* (no tags)
 
 	Example:
-	```tags = {
+	```
+	tags = {
 		"Project" = "Blog"
 		"Site" = "example.ca"
-	}```
+	}
+	```
 
 ### Application
 
